@@ -12,6 +12,7 @@
             <div id="Cellule2"></div>
             <div id="Cellule3"></div>
             <div id="Cellule4"></div>
+            <div id="Bacterie"></div>
         </div>
         <script>
             //Variables
@@ -26,6 +27,8 @@
             var Cellule3PosY;
             var Cellule4PosX;
             var Cellule4PosY;
+            var BacteriePosX;
+            var BacteriePosY;
 
 
             //Traitement
@@ -66,8 +69,13 @@
             document.getElementById("Cellule4").style.left = Cellule4PosX + "px"; // Set la position de Cellule4
             document.getElementById("Cellule4").style.top = Cellule4PosY + "px"; // Set la position de Cellule4
 
-
-
+            //Bactérie
+            Bacterie.style.width = "15px"; // Set la largeur de la bactérie
+            Bacterie.style.height = "15px"; // Set la longueur de la bactérie
+            BacteriePosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10;
+            BacteriePosY = Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10;
+            document.getElementById("Bacterie").style.left = BacteriePosX + "px"; // Set la position de Cellule4
+            document.getElementById("Bacterie").style.top = BacteriePosY + "px"; // Set la position de Cellule4
 
 
 
