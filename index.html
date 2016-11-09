@@ -65,14 +65,11 @@
             Affiche(Bacterie);
 
             function BacterieMouvement(){
-                Bacterie.posX += (Math.random() * 100) + "px";
-                Bacterie.posY += (Math.random() * 100) + "px";
+                Bacterie.posX += (Math.floor(Math.random() * 10) + 1) ;
+                Bacterie.posY += (Math.floor(Math.random() * 10) + 1) ;
                 Affiche(Bacterie);
             }
-            SetInterval(BacterieMouvement, 10);
-
-
-
+            setInterval(BacterieMouvement, 10);
 
         </script>
     </body>
