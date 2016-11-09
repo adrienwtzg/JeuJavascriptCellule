@@ -14,6 +14,7 @@
             <div id="Cellule4"></div>
             <div id="Bacterie"></div>
         </div>
+        <div id="debug"></div>
         <script>
             //Variables
 
@@ -29,6 +30,10 @@
             var Cellule4PosY;
             var BacteriePosX;
             var BacteriePosY;
+            var tour = 0;
+            var BacterieVecteurX;
+            var BacterieVecteurY;
+            var Start = false;
 
 
             //Traitement
@@ -72,10 +77,27 @@
             //Bactérie
             Bacterie.style.width = "15px"; // Set la largeur de la bactérie
             Bacterie.style.height = "15px"; // Set la longueur de la bactérie
-            BacteriePosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10;
-            BacteriePosY = Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10;
+            BacteriePosX = Math.random() * (ScreenSizeWidth - 200 - 15 - 10) + 10;
+            BacteriePosY = Math.random() * (ScreenSizeHeight - 300 - 15 - 10) + 10;
             document.getElementById("Bacterie").style.left = BacteriePosX + "px"; // Set la position de Cellule4
             document.getElementById("Bacterie").style.top = BacteriePosY + "px"; // Set la position de Cellule4
+
+            //Début Programme
+            Start = true;
+
+            function BacterieMouvement(){
+                tour++;
+                document.getElementById("debug").innerHTML = tour;
+                if (Start == true) {
+                  BacterieVecteurX = BacteriePosX;
+                  BacterieVecteurY = BacteriePosY;
+                  BacterieVecteurX += Math.random() * 10;
+                  BacterieVecteurY += Math.random() * 10;
+                  BacteriePosX = BacterieVecteurX + "px";
+                  BacteriePosY = BacterieVecteurY + "px";
+                }
+            }
+            SetInterval(BacterieMouvement, 10);
 
 
 
