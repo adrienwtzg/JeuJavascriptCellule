@@ -14,6 +14,7 @@
             <div id="Cellule4"></div>
             <div id="Bacterie"></div>
         </div>
+        <div id="debug"></div>
         <script>
             //Variables
 
@@ -62,6 +63,16 @@
             Bacterie.element.style.width = "15px"; // Set la largeur de la bactérie
             Bacterie.element.style.height = "15px"; // Set la longueur de la bactérie
             Affiche(Bacterie);
+
+            function BacterieMouvement(){
+                Bacterie.posX += (Math.random() * 100) + "px";
+                Bacterie.posY += (Math.random() * 100) + "px";
+                Affiche(Bacterie);
+            }
+            SetInterval(BacterieMouvement, 10);
+
+
+
 
         </script>
     </body>
