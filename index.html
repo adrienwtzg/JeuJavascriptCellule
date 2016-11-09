@@ -20,16 +20,16 @@
             var ScreenSizeWidth = screen.width; // Largeur de l'écran
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
 
-            Cellule1 = {posX: (Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), PosY: (Math.random() * (ScreenSizeHeight - 300 -20  - 10) + 10), element: document.getElementById("Cellule1")};
-            Cellule2 = {posX: Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10, PosY: Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10, element: document.getElementById("Cellule2")};
-            Cellule3 = {posX: Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10, PosY: Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10, element: document.getElementById("Cellule3")};
-            Cellule4 = {posX: Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10, PosY: Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10, element: document.getElementById("Cellule4")};
+            Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 -20  - 10) + 10), element: document.getElementById("Cellule1")};
+            Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule2")};
+            Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule3")};
+            Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule4")};
 
-            Bacterie = {posX: Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10, posY: Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10, element: document.getElementById("Bacterie")};
+            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
 
             function Affiche(cellule){
-              cellule.element.style.left = cellule.posX;
-              cellule.element.style.top = cellule.posY;
+              cellule.element.style.left = cellule.posX + "px";
+              cellule.element.style.top = cellule.posY + "px";
             }
 
             //Traitement
