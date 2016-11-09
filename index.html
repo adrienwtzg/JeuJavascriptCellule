@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeu cellule</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="StartDiv">
+            <div id="Cellule1"></div>
+            <div id="Cellule2"></div>
+            <div id="Cellule3"></div>
+            <div id="Cellule4"></div>
+        </div>
+        <script>
+            //Variables
+
+            var ScreenSizeWidth = screen.width; // Largeur de l'écran
+            var ScreenSizeHeight = screen.height; // Longeur de l'écran
+            var Cellule1PosX;
+            var Cellule1PosY;
+            var Cellule2PosX;
+            var Cellule2PosY;
+            var Cellule3PosX;
+            var Cellule3PosY;
+            var Cellule4PosX;
+            var Cellule4PosY;
+
+
+            //Traitement
+
+            //Cadre
+            StartDiv.style.width = ScreenSizeWidth - 200 + "px";// Set la largeur de StartDiv
+            StartDiv.style.height = ScreenSizeHeight - 300 + "px";// Set la longueur de StartDiv
+
+            //Cellule1
+            Cellule1.style.width = "20px"; // Set la largeur de Cellule1
+            Cellule1.style.height = "20px"; // Set la longueur de Cellule1
+            Cellule1PosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10; // Set la position X de Cellule1
+            Cellule1PosY = Math.random() * (ScreenSizeHeight - 300 -20  - 10) + 10; // Set la position Y de Cellule1
+            document.getElementById("Cellule1").style.left = Cellule1PosX + "px"; // Set la position de Cellule1
+            document.getElementById("Cellule1").style.top = Cellule1PosY + "px"; // Set la position de Cellule1
+
+            //Cellule2
+            Cellule2.style.width = "20px"; // Set la largeur de Cellule2
+            Cellule2.style.height = "20px"; // Set la longueur de Cellule2
+            Cellule2PosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10; // Set la position X de Cellule2
+            Cellule2PosY = Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10; // Set la position Y de Cellule2
+            document.getElementById("Cellule2").style.left = Cellule2PosX + "px"; // Set la position de Cellule2
+            document.getElementById("Cellule2").style.top = Cellule2PosY + "px"; // Set la position de Cellule2
+
+            //Cellule3
+            Cellule3.style.width = "20px"; // Set la largeur de Cellule3
+            Cellule3.style.height = "20px"; // Set la longueur de Cellule3
+            Cellule3PosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10; // Set la position X de Cellule3
+            Cellule3PosY = Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10; // Set la position Y de Cellule3
+            document.getElementById("Cellule3").style.left = Cellule3PosX + "px"; // Set la position de Cellule3
+            document.getElementById("Cellule3").style.top = Cellule3PosY + "px"; // Set la position de Cellule3
+
+            //Cellule4
+            Cellule4.style.width = "20px"; // Set la largeur de Cellule4
+            Cellule4.style.height = "20px"; // Set la longueur de Cellule4
+            Cellule4PosX = Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10; // Set la position X de Cellule4
+            Cellule4PosY = Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10; // Set la position Y de Cellule4
+            document.getElementById("Cellule4").style.left = Cellule4PosX + "px"; // Set la position de Cellule4
+            document.getElementById("Cellule4").style.top = Cellule4PosY + "px"; // Set la position de Cellule4
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
