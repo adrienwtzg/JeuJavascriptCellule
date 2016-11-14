@@ -20,19 +20,16 @@
 
             var ScreenSizeWidth = screen.width; // Largeur de l'écran
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
-            var Rebondir = 1;
-            var MouvementDiagBacterie = Rebondir * (Math.floor(Math.random() * 10) + 1);
 
             Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule1")};
             Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule2")};
             Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule3")};
             Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule4")};
 
-<<<<<<< HEAD
+
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
-=======
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
->>>>>>> refs/remotes/origin/Test-Fonctionalité
+
 
             function Affiche(cellule){
               cellule.element.style.left = cellule.posX + "px";
@@ -71,15 +68,7 @@
             Affiche(Bacterie);
 
             function BacterieMouvement(){
-                MouvementDiagBacterie = Rebondir * (Math.floor(Math.random() * 10) + 1);
-                Bacterie.posX += MouvementDiagBacterie ;
-                Bacterie.posY += MouvementDiagBacterie ;
-                Affiche(Bacterie);
 
-
-                if (Bacterie.posX >= ScreenSizeWidth -200 || Bacterie.posY >= ScreenSizeHeight -300 || Bacterie.posY <= 50 || Bacterie.posX <= 50) {
-                  Rebondir = -Rebondir;
-                }
             }
             setInterval(BacterieMouvement, 10);
 
