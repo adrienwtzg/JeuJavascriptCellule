@@ -27,17 +27,9 @@
             Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule3")};
             Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule4")};
 
-
-            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
 
-<<<<<<< HEAD
-            Vecteur = {angle : 90, force : 1};
-=======
             Vecteur = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (4 - 2) + 2) }
-
-
->>>>>>> refs/remotes/origin/master
 
             function Affiche(cellule){
               cellule.element.style.left = cellule.posX + "px";
@@ -92,7 +84,6 @@
               if (Bacterie.posY >= ScreenSizeHeight - 300 - 15) {
                 Vecteur.Angle -= 90;
               }
-
 
             }
             setInterval(BacterieMouvement, 10);
