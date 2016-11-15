@@ -27,9 +27,19 @@
             Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule3")};
             Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule4")};
 
+<<<<<<< HEAD
+=======
+
+
+            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 200 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
+>>>>>>> refs/remotes/origin/master
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
 
-            Vecteur = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (4 - 2) + 2) }
+            VecteurBacterie = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (6 - 4) + 4) }
+            VecteurCellule1 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
+            VecteurCellule2 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
+            VecteurCellule3 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
+            VecteurCellule4 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
 
             function Affiche(cellule){
               cellule.element.style.left = cellule.posX + "px";
@@ -68,21 +78,38 @@
             Affiche(Bacterie);
 
             function BacterieMouvement(){
-              Bacterie.posX += Math.sin(Vecteur.Angle) * Vecteur.Force;
-              Bacterie.posY += Math.cos(Vecteur.Angle) * Vecteur.Force;
+              Bacterie.posX += Math.sin(VecteurBacterie.Angle) * VecteurBacterie.Force;
+              Bacterie.posY += Math.cos(VecteurBacterie.Angle) * VecteurBacterie.Force;
+
+              Cellule1.posX += Math.sin(VecteurCellule2.Angle) * VecteurCellule1.Force;
+              Cellule1.posY += Math.cos(VecteurCellule2.Angle) * VecteurCellule1.Force;
+
+              Cellule2.posX += Math.sin(VecteurCellule1.Angle) * VecteurCellule2.Force;
+              Cellule2.posY += Math.cos(VecteurCellule1.Angle) * VecteurCellule2.Force;
+
+              Cellule3.posX += Math.sin(VecteurCellule3.Angle) * VecteurCellule3.Force;
+              Cellule3.posY += Math.cos(VecteurCellule3.Angle) * VecteurCellule3.Force;
+
+              Cellule4.posX += Math.sin(VecteurCellule4.Angle) * VecteurCellule4.Force;
+              Cellule4.posY += Math.cos(VecteurCellule4.Angle) * VecteurCellule4.Force;
+
               Affiche(Bacterie);
+              Affiche(Cellule1);
+              Affiche(Cellule2);
+              Affiche(Cellule3);
+              Affiche(Cellule4);
 
               if (1 - 0 > Bacterie.posX) {
-                Vecteur.Angle = -Vecteur.Angle;
+                VecteurBacterie.Angle = -VecteurBacterie.Angle;
               }
               if (Bacterie.posX >= ScreenSizeWidth - 200 - 15) {
-                Vecteur.Angle = -Vecteur.Angle;
+                VecteurBacterie.Angle = -VecteurBacterie.Angle;
               }
               if (1 - 0 > Bacterie.posY) {
-                Vecteur.Angle -= 90;
+                VecteurBacterie.Angle -= 90;
               }
               if (Bacterie.posY >= ScreenSizeHeight - 300 - 15) {
-                Vecteur.Angle -= 90;
+                VecteurBacterie.Angle -= 90;
               }
 
             }
