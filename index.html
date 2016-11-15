@@ -22,18 +22,40 @@
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
             var AngleRadian = 0;
 
-            Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule1")};
-            Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule2")};
-            Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule3")};
-            Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Cellule4")};
+            Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
+                        element: document.getElementById("Cellule1"),
+                        vecteur = { Angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                                            Force: Math.floor(Math.random() * (1 - 1) + 1) }
+                      };
 
-            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10), posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10), element: document.getElementById("Bacterie")};
+            Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
+                        element: document.getElementById("Cellule2"),
+                        vecteur = { Angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                                            Force: Math.floor(Math.random() * (1 - 1) + 1) }
+                      };
 
-            VecteurBacterie = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (6 - 4) + 4) }
-            VecteurCellule1 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
-            VecteurCellule2 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
-            VecteurCellule3 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
-            VecteurCellule4 = {Angle:  Math.floor(Math.random() * (360 - 1) + 1), Force: Math.floor(Math.random() * (1 - 1) + 1) }
+            Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
+                        element: document.getElementById("Cellule3"),
+                        vecteur = { Angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                                            Force: Math.floor(Math.random() * (1 - 1) + 1) }
+                      };
+
+            Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
+                        element: document.getElementById("Cellule4"),
+                        vecteur = { Angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                                            Force: Math.floor(Math.random() * (1 - 1) + 1) }
+                      };
+
+            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
+                        element: document.getElementById("Bacterie"),
+                        vecteur = { Angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                                            Force: Math.floor(Math.random() * (6 - 4) + 4) }
+                      };
 
             function Affiche(cellule){
               cellule.element.style.left = cellule.posX + "px";
@@ -108,8 +130,6 @@
                 VecteurBacterie.Angle -= 90;
               }
 
-<<<<<<< HEAD
-=======
               //Cellule1
               //***************************************************************************************************
               if (1 - 0 > Cellule1.posX) {
@@ -140,8 +160,6 @@
                 VecteurCellule2.Angle -= 90;
               }
 
-
->>>>>>> refs/remotes/origin/master
             }
             setInterval(BacterieMouvement, 10);
 
