@@ -25,6 +25,7 @@
             Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule1"),
+                        taille: 20,
                         vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
@@ -32,6 +33,7 @@
             Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule2"),
+                        taille: 20,
                         vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
@@ -39,6 +41,7 @@
             Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule3"),
+                        taille: 20,
                         vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
@@ -46,6 +49,7 @@
             Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule4"),
+                        taille: 20,
                         vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
@@ -53,6 +57,7 @@
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Bacterie"),
+                        taille: 15,
                         vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
                                   force: Math.floor(Math.random() * (6 - 4) + 4) }
                       };
@@ -103,13 +108,13 @@
               if (1 - 0 > objet.posX) {
                 objet.vecteur.angle = -objet.vecteur.angle;
               }
-              if (objet.posX >= ScreenSizeWidth - 200 - 15) {
+              if (objet.posX >= ScreenSizeWidth - 200 - objet.taille) {
                 objet.vecteur.angle = -objet.vecteur.angle;
               }
               if (1 - 0 > objet.posY) {
                 objet.vecteur.angle -= 90;
               }
-              if (objet.posY >= ScreenSizeHeight - 300 - 15) {
+              if (objet.posY >= ScreenSizeHeight - 300 - objet.taille) {
                 objet.vecteur.angle -= 90;
               }
             }
