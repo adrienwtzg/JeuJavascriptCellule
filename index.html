@@ -71,8 +71,8 @@
 
             for (var i = 0; i < 5; i++) {
               new Cellule();
+              new Bacterie();
             }
-            new Bacterie();
 
             function Affiche(objet){
               objet.element.style.left = objet.posX + "px";
@@ -106,16 +106,19 @@
             }
 
             function BacterieMouvement(){
-              Direction(ToutLesEtres.bacteries[0]);
+
               for (var i = 0; i < ToutLesEtres.cellules.length; i++) {
                 Direction(ToutLesEtres.cellules[i]);
                 Affiche(ToutLesEtres.cellules[i]);
                 CheckBord(ToutLesEtres.cellules[i]);
               }
+              for (var i = 0; i < ToutLesEtres.bacteries.length; i++) {
+                Direction(ToutLesEtres.bacteries[i]);
+                Affiche(ToutLesEtres.bacteries[i]);
+                CheckBord(ToutLesEtres.bacteries[i]);
+              }
 
-              Affiche(ToutLesEtres.bacteries[0]);
 
-              CheckBord(ToutLesEtres.bacteries[0]);
 
             }
             setInterval(BacterieMouvement, 10);
