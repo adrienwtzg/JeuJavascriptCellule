@@ -8,7 +8,6 @@
     </head>
     <body>
         <div id="StartDiv">
-            <div id="Bacterie"></div>
         </div>
         <div id="debug"></div>
         <script>
@@ -16,8 +15,8 @@
 
             var ScreenSizeWidth = screen.width; // Largeur de l'écran
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
-            var MAX = 1.5 ;
-            var MIN = 1.2 ;
+            var MAX = 4 ;
+            var MIN = -4 ;
             i = 1;
             ToutLesEtres = {cellules: [],
                             bacteries: []
@@ -50,7 +49,19 @@
 
             class Bacterie extends Etre {
               constructor(){
-                this.taille = 15;
+                super();
+                this.taille = 10;
+                var nouveauDiv = document.createElement("div");
+                nouveauDiv.id = "Bacterie"+ToutLesEtres.bacteries.length;
+                Zone.element.appendChild(nouveauDiv);
+                this.element = document.getElementById(nouveauDiv.id);
+                this.element.style.position = "absolute";
+                this.element.style.border = "1px black solid";
+                this.element.style.backgroundColor = "red" ;
+                this.element.style.borderRadius = "20px";
+                this.element.style.width = this.taille + "px";
+                this.element.style.height = this.taille + "px";
+                ToutLesEtres.bacteries.push(this);
               }
             }
 
@@ -61,14 +72,7 @@
             for (var i = 0; i < 5; i++) {
               new Cellule();
             }
-
-            Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
-                        posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
-                        element: document.getElementById("Bacterie"),
-                        taille: 15,
-                        deltaX: Math.random() * (MAX - MIN) + MIN,
-                        deltaY: Math.random() * (MAX - MIN) + MIN
-                      };
+            new Bacterie();
 
             function Affiche(objet){
               objet.element.style.left = objet.posX + "px";
@@ -82,10 +86,6 @@
             Zone.element.style.height = Zone.hauteur + "px";// Set la longueur de StartDiv
 
 
-            //Bactérie
-            Bacterie.element.style.width = "15px"; // Set la largeur de la bactérie
-            Bacterie.element.style.height = "15px"; // Set la longueur de la bactérie
-            Affiche(Bacterie);
 
             // Le nom de la fonction est peut-etre mal choisi
             function Direction(objet){
@@ -106,26 +106,17 @@
             }
 
             function BacterieMouvement(){
-              Direction(Bacterie);
+              Direction(ToutLesEtres.bacteries[0]);
               for (var i = 0; i < ToutLesEtres.cellules.length; i++) {
                 Direction(ToutLesEtres.cellules[i]);
                 Affiche(ToutLesEtres.cellules[i]);
                 CheckBord(ToutLesEtres.cellules[i]);
               }
-              //Direction(Cellule1);
-              //Direction(Cellule2);
-              //Direction(Cellule3);
-              //Direction(Cellule4);
-              Affiche(Bacterie);
-              //Affiche(Cellule1);
-              //Affiche(Cellule2);
-              //Affiche(Cellule3);
-              //Affiche(Cellule4);
-              CheckBord(Bacterie);
-              //CheckBord(Cellule1);
-              //CheckBord(Cellule2);
-              //CheckBord(Cellule3);
-              //CheckBord(Cellule4);
+
+              Affiche(ToutLesEtres.bacteries[0]);
+
+              CheckBord(ToutLesEtres.bacteries[0]);
+
             }
             setInterval(BacterieMouvement, 10);
 
