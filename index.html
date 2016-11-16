@@ -21,40 +21,49 @@
             var ScreenSizeWidth = screen.width; // Largeur de l'écran
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
             var AngleRadian = 0;
+            var MAX = 1.5 ;
+            var MIN = 1.2 ;
 
-            Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
+
+            /*Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule1"),
-                        vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                        taille: 20,
+                        vecteur: {angle:  Math.floor(Math.random() * (360 - 0) + 0),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
 
             Cellule2 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule2"),
-                        vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                        taille: 20,
+                        vecteur: {angle:  Math.floor(Math.random() * (360 - 0) + 0),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
 
             Cellule3 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule3"),
-                        vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                        taille: 20,
+                        vecteur: {angle:  Math.floor(Math.random() * (360 - 0) + 0),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
 
             Cellule4 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule4"),
-                        vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
+                        taille: 20,
+                        vecteur: {angle:  Math.floor(Math.random() * (360 - 0) + 0),
                                   force: Math.floor(Math.random() * (1 - 1) + 1) }
                       };
+*/
 
             Bacterie = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Bacterie"),
-                        vecteur: {angle:  Math.floor(Math.random() * (360 - 1) + 1),
-                                  force: Math.floor(Math.random() * (6 - 4) + 4) }
+                        taille: 15,
+                        deltaX: Math.random() * (MAX - MIN) + MIN,
+                        deltaY: Math.random() * (MAX - MIN) + MIN
                       };
 
             function Affiche(cellule){
@@ -69,7 +78,7 @@
             StartDiv.style.height = ScreenSizeHeight - 300 + "px";// Set la longueur de StartDiv
 
             //Cellule1
-            Cellule1.element.style.width = "20px"; // Set la largeur de Cellule1
+            /*Cellule1.element.style.width = "20px"; // Set la largeur de Cellule1
             Cellule1.element.style.height = "20px"; // Set la longueur de Cellule1
             Affiche(Cellule1);
 
@@ -86,7 +95,7 @@
             //Cellule4
             Cellule4.element.style.width = "20px"; // Set la largeur de Cellule4
             Cellule4.element.style.height = "20px"; // Set la longueur de Cellule4
-            Affiche(Cellule4);
+            Affiche(Cellule4);*/
 
             //Bactérie
             Bacterie.element.style.width = "15px"; // Set la largeur de la bactérie
@@ -95,108 +104,40 @@
 
             // Le nom de la fonction est peut-etre mal choisi
             function Direction(objet){
-              objet.posX += Math.sin(objet.vecteur.angle) * objet.vecteur.force;
-              objet.posY += Math.cos(objet.vecteur.angle) * objet.vecteur.force;
+              objet.posX += objet.deltaX;
+              objet.posY += objet.deltaY;
             }
 
             function CheckBord(objet){
-              if (1 - 0 > objet.posX) {
-                objet.vecteur.angle = -objet.vecteur.angle;
+
+              if ((1 - 0 > objet.posX) || (objet.posX >= ScreenSizeWidth - 200 - objet.taille)) {
+              //  objet.vecteur.angle = -objet.vecteur.angle;
+              objet.deltaX = -objet.deltaX;
               }
-              if (objet.posX >= ScreenSizeWidth - 200 - 15) {
-                objet.vecteur.angle = -objet.vecteur.angle;
+
+              if ((1 - 0 > objet.posY) || (objet.posY >= ScreenSizeHeight - 300 - objet.taille)) {
+              //  objet.vecteur.angle -= -90;
+              objet.deltaY = -objet.deltaY;
               }
-              if (1 - 0 > objet.posY) {
-                objet.vecteur.angle -= 90;
-              }
-              if (objet.posY >= ScreenSizeHeight - 300 - 15) {
-                objet.vecteur.angle -= 90;
-              }
+
             }
 
             function BacterieMouvement(){
-              //Bacterie.posX += Math.sin(VecteurBacterie.Angle) * VecteurBacterie.Force;
-              //Bacterie.posY += Math.cos(VecteurBacterie.Angle) * VecteurBacterie.Force;
               Direction(Bacterie);
-
-              //Cellule1.posX += Math.sin(VecteurCellule1.Angle) * VecteurCellule1.Force;
-              //Cellule1.posY += Math.cos(VecteurCellule1.Angle) * VecteurCellule1.Force;
-              Direction(Cellule1);
-
-              //Cellule2.posX += Math.sin(VecteurCellule2.Angle) * VecteurCellule2.Force;
-              //Cellule2.posY += Math.cos(VecteurCellule2.Angle) * VecteurCellule2.Force;
-              Direction(Cellule2);
-
-              //Cellule3.posX += Math.sin(VecteurCellule3.Angle) * VecteurCellule3.Force;
-              //Cellule3.posY += Math.cos(VecteurCellule3.Angle) * VecteurCellule3.Force;
-              Direction(Cellule3);
-
-              //Cellule4.posX += Math.sin(VecteurCellule4.Angle) * VecteurCellule4.Force;
-              //Cellule4.posY += Math.cos(VecteurCellule4.Angle) * VecteurCellule4.Force;
-              Direction(Cellule4);
-
+              //Direction(Cellule1);
+              //Direction(Cellule2);
+              //Direction(Cellule3);
+              //Direction(Cellule4);
               Affiche(Bacterie);
-              Affiche(Cellule1);
-              Affiche(Cellule2);
-              Affiche(Cellule3);
-              Affiche(Cellule4);
-
-              //Bacterie
-              //***************************************************************************************************
+              //Affiche(Cellule1);
+              //Affiche(Cellule2);
+              //Affiche(Cellule3);
+              //Affiche(Cellule4);
               CheckBord(Bacterie);
-              //if (1 - 0 > Bacterie.posX) {
-              //  VecteurBacterie.Angle = -VecteurBacterie.Angle;
-              //}
-              //if (Bacterie.posX >= ScreenSizeWidth - 200 - 15) {
-              //  VecteurBacterie.Angle = -VecteurBacterie.Angle;
-              //}
-              //if (1 - 0 > Bacterie.posY) {
-              //  VecteurBacterie.Angle -= 90;
-              //}
-              //if (Bacterie.posY >= ScreenSizeHeight - 300 - 15) {
-              //  VecteurBacterie.Angle -= 90;
-              //}
-
-              //Cellule1
-              //***************************************************************************************************
-              CheckBord(Cellule1);
-              //if (1 - 0 > Cellule1.posX) {
-              //  VecteurCellule1.Angle = -VecteurCellule1.Angle;
-              //}
-              //if (Cellule1.posX >= ScreenSizeWidth - 200 - 20) {
-              //  VecteurCellule1.Angle = -VecteurCellule1.Angle;
-              //}
-              //if (1 - 0 > Cellule1.posY) {
-              //  VecteurCellule1.Angle -= 90;
-              //}
-              //if (Cellule1.posY >= ScreenSizeHeight - 300 - 20) {
-              //  VecteurCellule1.Angle -= 90;
-              //}
-
-              //Cellule2
-              //***************************************************************************************************
-              CheckBord(Cellule2);
-              //if (1 - 0 > Cellule2.posX) {
-              //  VecteurCellule2.Angle = -VecteurCellule2.Angle;
-              //}
-              //if (Cellule2.posX >= ScreenSizeWidth - 200 - 20) {
-              //  VecteurCellule2.Angle = -VecteurCellule2.Angle;
-              //}
-              //if (1 - 0 > Cellule2.posY) {
-              //  VecteurCellule2.Angle -= 90;
-              //}
-              //if (Cellule2.posY >= ScreenSizeHeight - 300 - 20) {
-              //  VecteurCellule2.Angle -= 90;
-              //}
-
-              //Cellule3
-              //***************************************************************************************************
-              CheckBord(Cellule3);
-
-              //Cellule4
-              //***************************************************************************************************
-              CheckBord(Cellule4);
-
+              //CheckBord(Cellule1);
+              //CheckBord(Cellule2);
+              //CheckBord(Cellule3);
+              //CheckBord(Cellule4);
             }
             setInterval(BacterieMouvement, 10);
 
