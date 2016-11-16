@@ -22,6 +22,21 @@
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
             var AngleRadian = 0;
 
+            Zone = {largeur: ScreenSizeWidth - 200,
+                    hauteur: ScreenSizeHeight - 300,
+                    element: document.getElementById("StartDiv")};
+
+            class Etre {
+              constructor(type) {
+                nouveauDiv = document.createElement("div");
+                nouveauDiv.id = "Cellule" +1; // Il faut faire un incrementation automatisée
+                divParent = Zone.element;
+                if (type == "cellule") {
+
+                }
+              }
+            }
+
             Cellule1 = {posX: Math.floor(Math.random() * (ScreenSizeWidth - 200 - 20 - 10) + 10),
                         posY: Math.floor(Math.random() * (ScreenSizeHeight - 300 - 20 - 10) + 10),
                         element: document.getElementById("Cellule1"),
@@ -70,8 +85,8 @@
             //Traitement
 
             //Cadre
-            StartDiv.style.width = ScreenSizeWidth - 200 + "px";// Set la largeur de StartDiv
-            StartDiv.style.height = ScreenSizeHeight - 300 + "px";// Set la longueur de StartDiv
+            Zone.element.style.width = Zone.largeur + "px";// Set la largeur de StartDiv
+            Zone.element.style.height = Zone.hauteur + "px";// Set la longueur de StartDiv
 
             //Cellule1
             Cellule1.element.style.width = "20px"; // Set la largeur de Cellule1
@@ -149,50 +164,14 @@
               //Bacterie
               //***************************************************************************************************
               CheckBord(Bacterie);
-              //if (1 - 0 > Bacterie.posX) {
-              //  VecteurBacterie.Angle = -VecteurBacterie.Angle;
-              //}
-              //if (Bacterie.posX >= ScreenSizeWidth - 200 - 15) {
-              //  VecteurBacterie.Angle = -VecteurBacterie.Angle;
-              //}
-              //if (1 - 0 > Bacterie.posY) {
-              //  VecteurBacterie.Angle -= 90;
-              //}
-              //if (Bacterie.posY >= ScreenSizeHeight - 300 - 15) {
-              //  VecteurBacterie.Angle -= 90;
-              //}
 
               //Cellule1
               //***************************************************************************************************
               CheckBord(Cellule1);
-              //if (1 - 0 > Cellule1.posX) {
-              //  VecteurCellule1.Angle = -VecteurCellule1.Angle;
-              //}
-              //if (Cellule1.posX >= ScreenSizeWidth - 200 - 20) {
-              //  VecteurCellule1.Angle = -VecteurCellule1.Angle;
-              //}
-              //if (1 - 0 > Cellule1.posY) {
-              //  VecteurCellule1.Angle -= 90;
-              //}
-              //if (Cellule1.posY >= ScreenSizeHeight - 300 - 20) {
-              //  VecteurCellule1.Angle -= 90;
-              //}
 
               //Cellule2
               //***************************************************************************************************
               CheckBord(Cellule2);
-              //if (1 - 0 > Cellule2.posX) {
-              //  VecteurCellule2.Angle = -VecteurCellule2.Angle;
-              //}
-              //if (Cellule2.posX >= ScreenSizeWidth - 200 - 20) {
-              //  VecteurCellule2.Angle = -VecteurCellule2.Angle;
-              //}
-              //if (1 - 0 > Cellule2.posY) {
-              //  VecteurCellule2.Angle -= 90;
-              //}
-              //if (Cellule2.posY >= ScreenSizeHeight - 300 - 20) {
-              //  VecteurCellule2.Angle -= 90;
-              //}
 
               //Cellule3
               //***************************************************************************************************
