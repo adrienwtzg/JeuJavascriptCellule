@@ -17,6 +17,8 @@
             var ScreenSizeHeight = screen.height; // Longeur de l'écran
             var MAX = 4 ;
             var MIN = -4 ;
+            var NBR_BACTERIES_START = 3;
+            var NBR_CELLULES_SATRT = 10;
             i = 1;
             ToutLesEtres = {cellules: [],
                             bacteries: []
@@ -69,9 +71,12 @@
                     hauteur: ScreenSizeHeight - 300,
                     element: document.getElementById("StartDiv")};
 
-            for (var i = 0; i < 5; i++) {
-              new Cellule();
+            for (var i = 0; i < NBR_BACTERIES_START; i++) {
               new Bacterie();
+            }
+            
+            for (var i = 0; i < NBR_CELLULES_SATRT; i++) {
+              new Cellule();
             }
 
             function Affiche(objet){
