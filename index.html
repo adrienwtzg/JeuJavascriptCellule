@@ -9,7 +9,10 @@
     <body>
         <div id="StartDiv">
         </div>
-        <div id="debug"></div>
+        <div id="AfficheNbCellule">
+          <p>Nombre de cellules : </p>
+          <input type="text" id="tbxAffichage"/>
+        </div>
         <script>
             //Variables
 
@@ -18,8 +21,14 @@
             var MAX = 4 ;
             var MIN = -4 ;
             i = 1;
+            var tbxAffichage = 1;
+            document.getElementById("tbxAffichage").value = tbxAffichage;
+            DelaiDuplication = 5;
+            NbStartCellules = 1;
+            NbStartbacteries = 1;
             ToutLesEtres = {cellules: [],
-                            bacteries: []
+                            bacteries: [],
+                            cellulesinfectees: []
             };
 
             class Etre {
@@ -28,6 +37,10 @@
                 this.posY =  Math.floor(Math.random() * (Zone.hauteur - 20 - 10) + 10);
                 this.deltaX = Math.random() * (MAX - MIN) + MIN;
                 this.deltaY = Math.random() * (MAX - MIN) + MIN;
+              }
+
+              Supprimer(){
+                this.element.parentNode.removeChild(this.element);
               }
             }
 
@@ -44,6 +57,24 @@
                 this.element.style.width = this.taille + "px";
                 this.element.style.height = this.taille + "px";
                 ToutLesEtres.cellules.push(this);
+              }
+            }
+
+            class CelluleInfecte extends Etre {
+              constructor(){
+                super();
+                this.taille = 20;
+                var nouveauDiv = document.createElement("div");
+                nouveauDiv.id = "CelluleInfecte"+ToutLesEtres.cellulesinfectees.length;
+                Zone.element.appendChild(nouveauDiv);
+                this.element = document.getElementById(nouveauDiv.id);
+                this.element.style.backgroundColor = "red";
+                this.element.style.position = "absolute";
+                this.element.style.border = "1px black solid";
+                this.element.style.width = this.taille + "px";
+                this.element.style.height = this.taille + "px";
+                ToutLesEtres.cellulesinfectees.push(this);
+
               }
             }
 
@@ -69,11 +100,12 @@
                     hauteur: ScreenSizeHeight - 300,
                     element: document.getElementById("StartDiv")};
 
-            for (var i = 0; i < 1000; i++) {
+            for (var i = 0; i < NbStartCellules; i++) {
               new Cellule();
 
+
             }
-            for (var i = 0; i < 100; i++) {
+            for (var i = 0; i < NbStartbacteries; i++) {
               new Bacterie();
             }
 
@@ -81,6 +113,16 @@
               objet.element.style.left = objet.posX + "px";
               objet.element.style.top = objet.posY + "px";
             }
+
+            function Duplication(){
+              DivisonNombre = ToutLesEtres.cellules.length;
+              for (var i = 0; i < DivisonNombre; i++) {
+                new Cellule();
+              }
+              tbxAffichage = ToutLesEtres.cellules.length;
+              document.getElementById("tbxAffichage").value = tbxAffichage;
+            }
+            setInterval(Duplication, DelaiDuplication * 1000)
 
             //Traitement
 
@@ -104,6 +146,8 @@
 
               if ((1 - 0 > objet.posY) || (objet.posY >= ScreenSizeHeight - 300 - objet.taille)) {
               objet.deltaY = -objet.deltaY;
+              ToutLesEtres.cellules[0].Supprimer();
+              new CelluleInfecte();
               }
 
             }
@@ -115,13 +159,16 @@
                 Affiche(ToutLesEtres.cellules[i]);
                 CheckBord(ToutLesEtres.cellules[i]);
               }
+              for (var i = 0; i < ToutLesEtres.cellulesinfectees.length; i++) {
+                Direction(ToutLesEtres.cellulesinfectees[i]);
+                Affiche(ToutLesEtres.cellulesinfectees[i]);
+                CheckBord(ToutLesEtres.cellulesinfectees[i]);
+              }
               for (var i = 0; i < ToutLesEtres.bacteries.length; i++) {
                 Direction(ToutLesEtres.bacteries[i]);
                 Affiche(ToutLesEtres.bacteries[i]);
                 CheckBord(ToutLesEtres.bacteries[i]);
               }
-
-
 
             }
             setInterval(BacterieMouvement, 10);
