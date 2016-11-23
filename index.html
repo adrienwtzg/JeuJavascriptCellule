@@ -26,13 +26,14 @@
             var tbxAffichage = 1;
             document.getElementById("tbxAffichage").value = tbxAffichage;
             var DelaiDuplication = 3;
+            var ForceInfection = 10; //1 = "la plus forte" 100
 
             var NbStartCellules = 1;
             var NbStartbacteries = 1;
 
             var NBR_BACTERIES_START = 3;
             var NBR_CELLULES_SATRT = 10;
-            ForceInfection = 4 //1 = "la plus forte" 100
+
             ToutLesEtres = {cellules: [],
                             bacteries: [],
                             cellulesinfectees: []
@@ -126,7 +127,7 @@
 
             function Duplication(){
               DivisonNombre = ToutLesEtres.cellules.length;
-              for (var i = 0; i < DivisonNombre; i++) {
+              for (var i = 0; i < 1; i++) { // Le 1 est provisoire
                 new Cellule();
               }
               tbxAffichage = ToutLesEtres.cellules.length;
@@ -135,8 +136,8 @@
             setInterval(Duplication, DelaiDuplication * 1000);
 
             function Direction(objet){
-              objet.posX += objet.deltaX;
-              objet.posY += objet.deltaY;
+              objet.posX += objet.deltaX / 4;
+              objet.posY += objet.deltaY / 4;
             }
 
             function DetectionCollision(objet1, objet2){
