@@ -26,9 +26,11 @@
             var i = 1;
             var tbxAffichage = 1;
             document.getElementById("tbxAffichage").value = tbxAffichage;
-            DelaiDuplication = 5;
-            NbStartCellules = 1;
-            NbStartbacteries = 1;
+            var DelaiDuplication = 5;
+
+            var NbStartCellules = 1;
+            var NbStartbacteries = 1;
+
             ToutLesEtres = {cellules: [],
                             bacteries: [],
                             cellulesinfectees: []
@@ -129,7 +131,7 @@
               tbxAffichage = ToutLesEtres.cellules.length;
               document.getElementById("tbxAffichage").value = tbxAffichage;
             }
-            setInterval(Duplication, DelaiDuplication * 1000)
+            setInterval(Duplication, DelaiDuplication * 1000);
 
             function Direction(objet){
               objet.posX += objet.deltaX;
