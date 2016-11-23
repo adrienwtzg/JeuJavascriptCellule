@@ -100,14 +100,18 @@
                     hauteur: ScreenSizeHeight - 300,
                     element: document.getElementById("StartDiv")};
 
-            for (var i = 0; i < NbStartCellules; i++) {
-              new Cellule();
+            StartCellules();
 
 
-            }
-            for (var i = 0; i < NbStartbacteries; i++) {
-              new Bacterie();
-            }
+
+            //Traitement
+
+            //Cadre
+            Zone.element.style.width = Zone.largeur + "px";// Set la largeur de StartDiv
+            Zone.element.style.height = Zone.hauteur + "px";// Set la longueur de StartDiv
+
+
+            //Fonctions
 
             function Affiche(objet){
               objet.element.style.left = objet.posX + "px";
@@ -124,18 +128,18 @@
             }
             setInterval(Duplication, DelaiDuplication * 1000)
 
-            //Traitement
-
-            //Cadre
-            Zone.element.style.width = Zone.largeur + "px";// Set la largeur de StartDiv
-            Zone.element.style.height = Zone.hauteur + "px";// Set la longueur de StartDiv
-
-
-
-            // Le nom de la fonction est peut-etre mal choisi
             function Direction(objet){
               objet.posX += objet.deltaX;
               objet.posY += objet.deltaY;
+            }
+
+            function StartCellules(){
+              for (var i = 0; i < NbStartCellules; i++) {
+                new Cellule();
+              }
+              for (var i = 0; i < NbStartbacteries; i++) {
+                new Bacterie();
+              }
             }
 
             function CheckBord(objet){
