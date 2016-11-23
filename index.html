@@ -22,6 +22,7 @@
 
             var MAX = 4 ;
             var MIN = -4 ;
+<<<<<<< HEAD
 
             var i = 1;
             var tbxAffichage = 1;
@@ -33,6 +34,11 @@
 
 
 
+=======
+            var NBR_BACTERIES_START = 3;
+            var NBR_CELLULES_SATRT = 10;
+            i = 1;
+>>>>>>> refs/remotes/origin/Test-Fonctionalité
             ToutLesEtres = {cellules: [],
                             bacteries: [],
                             cellulesinfectees: []
@@ -107,6 +113,16 @@
                     hauteur: ScreenSizeHeight - 300,
                     element: document.getElementById("StartDiv")};
 
+<<<<<<< HEAD
+=======
+            for (var i = 0; i < NBR_BACTERIES_START; i++) {
+              new Bacterie();
+            }
+            
+            for (var i = 0; i < NBR_CELLULES_SATRT; i++) {
+              new Cellule();
+            }
+>>>>>>> refs/remotes/origin/Test-Fonctionalité
 
 
             //Traitement
