@@ -22,23 +22,19 @@
 
             var MAX = 4 ;
             var MIN = -4 ;
-<<<<<<< HEAD
 
             var i = 1;
             var tbxAffichage = 1;
             document.getElementById("tbxAffichage").value = tbxAffichage;
-            var DelaiDuplication = 5;
+            var DelaiDuplication = 3;
 
             var NbStartCellules = 1;
             var NbStartbacteries = 1;
 
-
-
-=======
             var NBR_BACTERIES_START = 3;
             var NBR_CELLULES_SATRT = 10;
             i = 1;
->>>>>>> refs/remotes/origin/Test-Fonctionalité
+            ForceInfection = 4 //1 = "la plus forte" 100
             ToutLesEtres = {cellules: [],
                             bacteries: [],
                             cellulesinfectees: []
@@ -113,17 +109,6 @@
                     hauteur: ScreenSizeHeight - 300,
                     element: document.getElementById("StartDiv")};
 
-<<<<<<< HEAD
-=======
-            for (var i = 0; i < NBR_BACTERIES_START; i++) {
-              new Bacterie();
-            }
-            
-            for (var i = 0; i < NBR_CELLULES_SATRT; i++) {
-              new Cellule();
-            }
->>>>>>> refs/remotes/origin/Test-Fonctionalité
-
 
             //Traitement
             //******************************************************************************************************************************************************************************************************************************
@@ -183,8 +168,10 @@
                 objet2.deltaY = -objet2.deltaY;
 
                 if (objet1.element.style.backgroundColor == "red" || objet2.element.style.backgroundColor == "red") {
-                  objet1.element.style.backgroundColor = "red";
-                  objet2.element.style.backgroundColor = "red";
+                  if (2 == Math.floor((Math.random() * ForceInfection) + 1)) {
+                    objet1.element.style.backgroundColor = "red";
+                    objet2.element.style.backgroundColor = "red";
+                  }
                 }
               }
             }
