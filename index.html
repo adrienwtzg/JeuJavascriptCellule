@@ -31,6 +31,8 @@
             var NbStartCellules = 1;
             var NbStartbacteries = 1;
 
+
+
             ToutLesEtres = {cellules: [],
                             bacteries: [],
                             cellulesinfectees: []
@@ -52,7 +54,7 @@
             class Cellule extends Etre {
               constructor(){
                 super();
-                this.taille = 20;
+                this.taille = 10;
                 var nouveauDiv = document.createElement("div");
                 nouveauDiv.id = "Cellule"+ToutLesEtres.cellules.length;
                 Zone.element.appendChild(nouveauDiv);
@@ -86,7 +88,7 @@
             class Bacterie extends Etre {
               constructor(){
                 super();
-                this.taille = 10;
+                this.taille = 5;
                 var nouveauDiv = document.createElement("div");
                 nouveauDiv.id = "Bacterie"+ToutLesEtres.bacteries.length;
                 Zone.element.appendChild(nouveauDiv);
@@ -138,6 +140,39 @@
               objet.posY += objet.deltaY;
             }
 
+            function DetectionCollision(objet1, objet2){
+              var DistanceX = 0;
+              var DistanceY = 0;
+              var TailleObjet1 = objet1.taille;
+              var TailleObjet2 = objet2.taille;
+
+              if (objet1.posX > objet2.posX) {
+                DistanceX = objet1.posX - objet2.posX;
+              }
+              else{
+                DistanceX = objet2.posX - objet1.posX;
+              }
+
+              if (objet1.posY > objet2.posY) {
+                DistanceY = objet1.posY - objet2.posY;
+              }
+              else{
+                DistanceY = objet2.posY - objet1.posY;
+              }
+
+              if ((DistanceX < TailleObjet1 + TailleObjet2) && (DistanceY < TailleObjet1 + TailleObjet2)) {
+                objet1.deltaX = -objet1.deltaX;
+                objet2.deltaX = -objet2.deltaX;
+                objet1.deltaY = -objet1.deltaY;
+                objet2.deltaY = -objet2.deltaY;
+
+                if (objet1.element.style.backgroundColor == "red" || objet2.element.style.backgroundColor == "red") {
+                  objet1.element.style.backgroundColor = "red";
+                  objet2.element.style.backgroundColor = "red";
+                }
+              }
+            }
+
             function StartCellules(){
               for (var i = 0; i < NbStartCellules; i++) {
                 new Cellule();
@@ -155,8 +190,8 @@
 
               if ((1 - 0 > objet.posY) || (objet.posY >= ScreenSizeHeight - 300 - objet.taille)) {
               objet.deltaY = -objet.deltaY;
-              ToutLesEtres.cellules[0].Supprimer();
-              new CelluleInfecte();
+              //objet.Supprimer();
+              //new CelluleInfecte();
               }
 
             }
@@ -167,6 +202,14 @@
                 Direction(ToutLesEtres.cellules[i]);
                 Affiche(ToutLesEtres.cellules[i]);
                 CheckBord(ToutLesEtres.cellules[i]);
+                for (var f = 0; f < ToutLesEtres.cellules.length; f++) {
+                  if (i == f) {
+
+                  }
+                  else {
+                    DetectionCollision(ToutLesEtres.cellules[i], ToutLesEtres.cellules[f]);
+                  }
+                }
               }
               for (var i = 0; i < ToutLesEtres.cellulesinfectees.length; i++) {
                 Direction(ToutLesEtres.cellulesinfectees[i]);
@@ -177,6 +220,14 @@
                 Direction(ToutLesEtres.bacteries[i]);
                 Affiche(ToutLesEtres.bacteries[i]);
                 CheckBord(ToutLesEtres.bacteries[i]);
+                for (var f = 0; f < ToutLesEtres.cellules.length; f++) {
+                  if (i == f) {
+
+                  }
+                  else {
+                    DetectionCollision(ToutLesEtres.bacteries[i], ToutLesEtres.cellules[f]);
+                  }
+                }
               }
 
             }
